@@ -8,20 +8,18 @@ An explainable, macro-aware, and anticipatory financial operating system built f
 
 > **Note:** The backend is deployed on a free-tier Render instance. **It may take ~30-60 seconds to spin up on your first visit** due to cold starts. Please be patient while the market snapshots initialize.
 
-## 1. Product Thesis
-Nexus AI operates on a singular thesis: **The future of financial AI is not reactive chatbots; it is proactive, habit-forming intelligence grounded in trust engineering.** 
+## 🎥 Product Demo
+*(Insert 30-second Loom Demo GIF here showing onboarding -> timeline -> reasoning trace)*
+<!-- ![Nexus AI Demo](demo.gif) -->
 
-We do not predict stock prices. We translate quantitative macroeconomic complexity, longitudinal portfolio memory, and specific investor goals into human-readable, auditable strategies.
-
-## 2. Problem Statement
-Retail investors and portfolio managers distrust black-box financial AI. Current implementations suffer from:
-* **Opacity:** Generating static allocations with zero visibility into *why*.
-* **Reactivity:** Waiting for user prompts instead of actively monitoring portfolio drift.
-* **Repetition:** Nagging users with the same static advice, losing perceived intelligence over time.
-* **Speculative Hallucinations:** Inventing financial "facts" to justify random outputs.
-
-## 3. Architecture Overview
+## 🏗️ Architecture Overview
 Nexus AI completely decouples mathematical portfolio tracking from LLM reasoning. The AI does not compute P&L or allocations. It translates the deterministic output into proactive strategy.
+
+*(Insert Architecture Diagram Previews here)*
+<!-- ![Architecture Diagram](diagram.png) -->
+
+## 🔍 Explainability System & Trust Engineering
+To bridge the gap between "prototype" and "institutional-grade", we implemented explicit Trust Mechanics:
 
 ```mermaid
 graph TD
