@@ -17,6 +17,8 @@ from fastapi import Request
 
 from app.api.deps import get_current_user
 from app.models.user import User
+from sqlalchemy.ext.asyncio import AsyncSession
+from app.core.database import get_db
 
 router = APIRouter(prefix="/portfolio", tags=["Portfolio & Analytics"])
 
