@@ -7,7 +7,7 @@ from tenacity import retry, wait_exponential, stop_after_attempt
 from app.services.market_data_service import fetch_batch_stock_data, fetch_amfi_navs
 from app.services.news_service import fetch_news_from_feeds
 from app.services.rebalancing_service import RebalancingService
-from app.core.database import SessionLocal
+from app.core.database import async_session_factory
 from app.models.portfolio import SmartAlert
 from app.models.user import User
 from app.models.investor_profile import InvestorProfile
@@ -59,7 +59,7 @@ async def hourly_portfolio_drift_check():
     """Hourly job: Checks portfolio drift for all users and triggers rebalancing alerts."""
     logger.info("Starting hourly portfolio drift check...")
     try:
-        async with SessionLocal() as db:
+        async with async_session_factory() as db:
             stmt = select(User)
             result = await db.execute(stmt)
             users = result.scalars().all()
