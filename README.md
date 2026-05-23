@@ -2,6 +2,12 @@
 
 An explainable, macro-aware, and anticipatory financial operating system built for institutional-grade reliability.
 
+## 🚀 Live Demo
+* **Frontend UI:** [https://nexus-ai-frontend.vercel.app](https://nexus-ai-frontend.vercel.app) *(Update with your URL)*
+* **Backend API Health:** [https://nexus-ai-backend.onrender.com/health](https://nexus-ai-backend.onrender.com/health) *(Update with your URL)*
+
+> **Note:** The backend is deployed on a free-tier Render instance. **It may take ~30-60 seconds to spin up on your first visit** due to cold starts. Please be patient while the market snapshots initialize.
+
 ## 1. Product Thesis
 Nexus AI operates on a singular thesis: **The future of financial AI is not reactive chatbots; it is proactive, habit-forming intelligence grounded in trust engineering.** 
 

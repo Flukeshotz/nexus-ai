@@ -17,7 +17,10 @@ import { renderRecommendationSafetyPanel } from './components/recommendationSafe
 import { showToast } from './services/errorBoundary.js';
 import { renderLoadingCard, startLoadingSteps, clearLoadingSteps } from './services/loadingStateManager.js';
 
-const API_BASE = 'http://localhost:8000/api/v1';
+const API_BASE =
+    window.location.hostname === "localhost"
+        ? "http://localhost:8000/api/v1"
+        : "https://nexus-ai-backend.onrender.com/api/v1";
 
 // Provide initial mock state for UI testing
 updateState({

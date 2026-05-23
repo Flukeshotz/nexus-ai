@@ -3,15 +3,17 @@ Core application settings loaded from environment variables.
 Uses pydantic-settings for type-safe configuration management.
 """
 
+import os
+import json
 from pydantic_settings import BaseSettings
 from typing import List
-import json
 
+_db_path = os.getenv("DATABASE_PATH", "./nexus.db")
 
 class Settings(BaseSettings):
     # ── Database ──────────────────────────────────────────────
-    DATABASE_URL: str = "sqlite+aiosqlite:///./nexus.db"
-    DATABASE_URL_SYNC: str = "sqlite:///./nexus.db"
+    DATABASE_URL: str = f"sqlite+aiosqlite:///{_db_path}"
+    DATABASE_URL_SYNC: str = f"sqlite:///{_db_path}"
 
     # ── JWT Authentication ────────────────────────────────────
     JWT_SECRET_KEY: str = "change-me-to-a-secure-random-string"
@@ -20,7 +22,7 @@ class Settings(BaseSettings):
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
     # ── CORS ──────────────────────────────────────────────────
-    CORS_ORIGINS: str = '["http://localhost:3000"]'
+    CORS_ORIGINS: str = '["*"]'
 
     @property
     def cors_origins_list(self) -> List[str]:
