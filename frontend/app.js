@@ -20,7 +20,7 @@ import { renderLoadingCard, startLoadingSteps, clearLoadingSteps } from './servi
 const API_BASE =
     window.location.hostname === "localhost"
         ? "http://localhost:8000/api/v1"
-        : "https://nexus-ai-backend.onrender.com/api/v1";
+        : "https://nexus-ai-4y4s.onrender.com/api/v1";
 
 // Provide initial mock state for UI testing
 updateState({
