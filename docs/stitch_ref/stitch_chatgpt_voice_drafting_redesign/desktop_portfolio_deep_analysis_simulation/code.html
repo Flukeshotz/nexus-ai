@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus AI - Portfolio Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#003023",
+                      "market-up": "#10A37F",
+                      "on-primary-container": "#003024",
+                      "on-secondary-fixed": "#0d1c2f",
+                      "on-secondary-fixed-variant": "#3a485c",
+                      "secondary": "#b9c7e0",
+                      "secondary-fixed": "#d5e3fd",
+                      "surface-dim": "#0f1512",
+                      "on-secondary-container": "#abb9d2",
+                      "background": "#0f1512",
+                      "tertiary": "#95d3ba",
+                      "primary-fixed-dim": "#61dbb4",
+                      "primary-container": "#12a480",
+                      "on-surface-variant": "#bccac2",
+                      "secondary-container": "#3c4a5e",
+                      "primary-fixed": "#7ff8cf",
+                      "surface-container-highest": "#303633",
+                      "error-container": "#93000a",
+                      "surface-container": "#1b211e",
+                      "surface-bright": "#343b37",
+                      "on-primary-fixed": "#002117",
+                      "inverse-on-surface": "#2c322e",
+                      "error": "#ffb4ab",
+                      "text-secondary": "#94A3B8",
+                      "on-secondary": "#233144",
+                      "text-primary": "#F8FAFC",
+                      "on-background": "#dee4df",
+                      "on-error": "#690005",
+                      "inverse-primary": "#006c52",
+                      "on-tertiary-fixed-variant": "#0b513d",
+                      "on-tertiary-fixed": "#002117",
+                      "surface-container-high": "#252b28",
+                      "surface-variant": "#303633",
+                      "surface-glass": "rgba(22, 29, 26, 0.6)",
+                      "tertiary-container": "#5f9d85",
+                      "surface-tint": "#61dbb4",
+                      "on-error-container": "#ffdad6",
+                      "primary": "#61dbb4",
+                      "outline-variant": "#3d4a44",
+                      "on-surface": "#dee4df",
+                      "tertiary-fixed-dim": "#95d3ba",
+                      "surface-card": "#161D1A",
+                      "market-down": "#EF4444",
+                      "on-tertiary": "#003829",
+                      "secondary-fixed-dim": "#b9c7e0",
+                      "surface-container-lowest": "#0a0f0d",
+                      "market-neutral": "#64748B",
+                      "outline": "#86948d",
+                      "tertiary-fixed": "#b0f0d6",
+                      "on-primary": "#00382a",
+                      "surface-container-low": "#171d1a",
+                      "surface": "#0f1512",
+                      "inverse-surface": "#dee4df",
+                      "on-primary-fixed-variant": "#00513d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-lg": "24px",
+                      "gutter": "24px",
+                      "unit-sm": "8px",
+                      "margin-desktop": "32px",
+                      "margin-mobile": "16px",
+                      "container-max": "1280px",
+                      "unit-xs": "4px",
+                      "unit-md": "16px",
+                      "unit-xl": "40px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "mono-stats": [
+                              "Geist"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-stats": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-panel {
+            background: rgba(22, 29, 26, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(97, 219, 180, 0.1);
+            border-left: 1px solid rgba(97, 219, 180, 0.05);
+        }
+        .ai-rationale-border {
+            border-left: 2px solid #12a480;
+        }
+        /* Custom scrollbar for deep-tech feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1512;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #303633;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3d4a44;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar (Web/Tablet) -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop h-16 w-full fixed top-0 z-50 bg-surface-glass backdrop-blur-md">
+<div class="flex items-center gap-unit-sm">
+<button class="text-on-surface-variant hover:bg-surface-bright/20 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary">NEXUS AI</span>
+</div>
+<nav class="flex gap-unit-lg items-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-primary font-bold" href="#">Portfolio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Insights</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Profile</a>
+</nav>
+<div class="flex items-center gap-unit-sm">
+<button class="text-on-surface-variant hover:bg-surface-bright/20 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile h-16 w-full fixed top-0 z-50 bg-surface-glass backdrop-blur-md">
+<button class="text-on-surface-variant hover:bg-surface-bright/20 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary">NEXUS AI</span>
+<button class="text-on-surface-variant hover:bg-surface-bright/20 transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<main class="pt-24 pb-32 md:pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto space-y-gutter">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-unit-md mb-8">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary mb-2">Global Alpha Portfolio</h1>
+<p class="font-body-md text-body-md text-text-secondary flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Live Analysis Mode Active
+                </p>
+</div>
+<div class="glass-panel p-4 rounded-xl text-right w-full md:w-auto">
+<p class="font-label-md text-label-md text-text-secondary uppercase mb-1">Total Value</p>
+<div class="flex items-baseline justify-end gap-2">
+<span class="font-mono-stats text-headline-lg text-text-primary">$2,450,890.00</span>
+<span class="font-mono-stats text-body-sm text-market-up flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        +1.24%
+                    </span>
+</div>
+</div>
+</section>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Asset Allocation -->
+<div class="md:col-span-7 space-y-gutter">
+<div class="bg-surface-card border border-outline-variant rounded-xl p-unit-lg h-full">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md text-text-primary">Deep-Dive Allocation</h2>
+<button class="text-primary hover:text-primary-fixed transition-colors">
+<span class="material-symbols-outlined">fullscreen</span>
+</button>
+</div>
+<!-- Faux Sunburst Chart Area -->
+<div class="relative w-full aspect-square md:aspect-video rounded-lg overflow-hidden bg-surface-container flex items-center justify-center">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at center, #12a480 0%, transparent 70%);"></div>
+<!-- Decorative Concentric Circles mimicking a sunburst -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-surface-bright flex items-center justify-center">
+<div class="absolute w-48 h-48 md:w-60 md:h-60 rounded-full border border-surface-variant flex items-center justify-center">
+<div class="absolute w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-primary-container bg-surface-dim flex items-center justify-center z-10 shadow-[0_0_30px_rgba(18,164,128,0.2)]">
+<div class="text-center">
+<p class="font-label-md text-label-md text-text-secondary">Equities</p>
+<p class="font-mono-stats text-body-lg text-text-primary">65%</p>
+</div>
+</div>
+<!-- Segment Dividers (Visual Only) -->
+<div class="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0_120deg,rgba(255,255,255,0.02)_120deg_240deg,transparent_240deg_360deg)] rounded-full"></div>
+</div>
+</div>
+<!-- Floating Labels -->
+<div class="absolute top-4 left-4 bg-surface-glass px-3 py-1 rounded-full text-xs font-mono-stats text-text-secondary border border-outline-variant">Tech 30%</div>
+<div class="absolute bottom-4 right-4 bg-surface-glass px-3 py-1 rounded-full text-xs font-mono-stats text-text-secondary border border-outline-variant">NAM 45%</div>
+</div>
+<!-- Breadcrumb/Legend below chart -->
+<div class="mt-6 flex gap-2 items-center text-sm font-label-md text-text-secondary overflow-x-auto pb-2">
+<span class="px-2 py-1 bg-surface-container rounded-md border border-outline-variant text-primary">Asset Class</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="px-2 py-1 bg-surface-container rounded-md border border-outline-variant">Sector</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="px-2 py-1 bg-surface-container rounded-md border border-outline-variant">Region</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Macro Simulator -->
+<div class="md:col-span-5 space-y-gutter">
+<div class="bg-surface-card border border-outline-variant rounded-xl p-unit-lg h-full glass-panel relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl rounded-full"></div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-2">Macro Scenario Simulator</h2>
+<p class="font-body-sm text-body-sm text-text-secondary mb-6">Test portfolio resilience against hypothetical market conditions.</p>
+<div class="space-y-4 mb-8">
+<!-- Toggles -->
+<div class="flex items-center justify-between p-3 rounded-lg border border-outline-variant bg-surface-container hover:border-primary/30 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">trending_down</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">10% Market Crash</span>
+</div>
+<div class="w-10 h-5 bg-surface-dim rounded-full relative border border-outline">
+<div class="absolute left-1 top-1 w-3 h-3 bg-text-secondary rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-primary/50 bg-primary/10 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">price_change</span>
+<span class="font-body-md text-body-md text-primary">High Inflation (+3%)</span>
+</div>
+<div class="w-10 h-5 bg-primary-container rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-surface-dim rounded-full shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg border border-outline-variant bg-surface-container hover:border-primary/30 transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">account_balance</span>
+<span class="font-body-md text-body-md text-on-surface group-hover:text-primary transition-colors">Interest Rate Hike</span>
+</div>
+<div class="w-10 h-5 bg-surface-dim rounded-full relative border border-outline">
+<div class="absolute left-1 top-1 w-3 h-3 bg-text-secondary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Projected Impact -->
+<div class="ai-rationale-border bg-surface-dim p-4 rounded-r-lg">
+<p class="font-label-md text-label-md text-primary mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">psychology</span>
+                            AI Impact Projection
+                        </p>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-body-sm text-body-sm text-text-secondary">Projected CAGR</p>
+<p class="font-mono-stats text-body-lg text-market-down">-1.4% <span class="text-xs text-text-secondary ml-1">(vs Baseline)</span></p>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-text-secondary">Drawdown Risk</p>
+<p class="font-mono-stats text-body-lg text-error">+4.2% <span class="text-xs text-text-secondary ml-1">Exposure</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Financial Education Section -->
+<section class="mt-8 border-t border-outline-variant pt-8">
+<h3 class="font-headline-md text-headline-md text-text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">school</span>
+                Contextual Education
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Term 1 -->
+<div class="bg-surface-card p-6 rounded-xl border border-outline-variant hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface">Sharpe Ratio</h4>
+<span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-mono-stats">Current: 1.45</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mb-4 leading-relaxed">
+                        Measures the performance of an investment compared to a risk-free asset, after adjusting for its risk. A higher ratio indicates better historical risk-adjusted performance.
+                    </p>
+<div class="ai-rationale-border bg-surface-dim p-3 rounded-r-md text-sm text-on-surface-variant font-body-sm">
+<strong class="text-primary">AI Context:</strong> Your portfolio's ratio is currently strong, driven by the low volatility in your fixed-income allocations.
+                    </div>
+</div>
+<!-- Term 2 -->
+<div class="bg-surface-card p-6 rounded-xl border border-outline-variant hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface">Alpha (α)</h4>
+<span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-mono-stats">Current: +2.1%</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary mb-4 leading-relaxed">
+                        Represents the active return on an investment, gauging its performance against a market index. Positive alpha implies the investment has outperformed the market.
+                    </p>
+<div class="ai-rationale-border bg-surface-dim p-3 rounded-r-md text-sm text-on-surface-variant font-body-sm">
+<strong class="text-primary">AI Context:</strong> Strategic overweighting in the Tech sector is currently generating positive alpha against the benchmark.
+                    </div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center pt-2 pb-safe px-4 z-50 bg-surface-glass backdrop-blur-xl border-t border-outline-variant shadow-lg" style="padding-bottom: env(safe-area-inset-bottom);">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-all p-2" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:text-primary-fixed-dim transition-all transform scale-110 duration-200 p-2" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-md text-label-md">Portfolio</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-all p-2" href="#">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span class="font-label-md text-label-md">Insights</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary-fixed-dim transition-all p-2" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+</body></html>

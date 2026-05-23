@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-05-23T15:26:13.528226+00:00",
+  "market_regime": "Bullish",
+  "inflation_trend": "Stable",
+  "interest_rate_trend": "Stable",
+  "volatility_level": "Low",
+  "fear_greed_score": 75,
+  "sector_momentum": {
+    "Technology": 0.58,
+    "Bonds": 0.38
+  },
+  "asset_signals": {
+    "SPY": {
+      "rsi": 71.8419010931324,
+      "trend": "Bullish"
+    },
+    "QQQ": {
+      "rsi": 73.52013346233835,
+      "trend": "Bullish"
+    },
+    "NIFTYBEES.NS": {
+      "rsi": 40.22380449835464,
+      "trend": "Neutral"
+    },
+    "GLD": {
+      "rsi": 49.188710098296184,
+      "trend": "Neutral"
+    },
+    "TLT": {
+      "rsi": 47.98271843806341,
+      "trend": "Neutral"
+    },
+    "VXUS": {
+      "rsi": 58.50654136994347,
+      "trend": "Bullish"
+    }
+  }
+}

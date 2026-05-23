@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual Environments
+venv/
+.env/
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Docker
+*.pid
+
+# AI Models / Cache
+.cache/
+models/
+
+# Environment Variables
+.env
+
+# Pytest
+.pytest_cache/
+
+# FAISS temp
+*.faiss
+
+# SQLite volumes
+data/
