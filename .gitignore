@@ -27,7 +27,7 @@ node_modules/
 
 # AI Models / Cache
 .cache/
-models/
+/models/
 
 # Environment Variables
 .env
