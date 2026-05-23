@@ -9,7 +9,7 @@ Edge Cases Addressed:
 """
 
 import logging
-from typing import Dict, List, Optional
+from typing import Dict, List
 from datetime import datetime, timedelta
 
 logger = logging.getLogger(__name__)

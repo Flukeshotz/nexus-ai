@@ -51,6 +51,64 @@ async def seed_data():
     except Exception as e:
         logger.error(f"Failed to populate FAISS: {e}")
 
+    # 5. Create Deterministic Demo Portfolio
+    logger.info("5. Creating deterministic Demo User and Portfolio...")
+    from app.models.user import User
+    from app.models.investor_profile import InvestorProfile, RiskAppetite, InvestmentHorizon, DomesticInternational
+    from app.models.holding import Holding
+    from sqlalchemy import select
+    from passlib.context import CryptContext
+
+    pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+    async with engine.begin() as conn:
+        from sqlalchemy.ext.asyncio import AsyncSession
+        async with AsyncSession(engine) as session:
+            # Check if user exists
+            stmt = select(User).where(User.email == "demo@nexusai.com")
+            result = await session.execute(stmt)
+            demo_user = result.scalar_one_or_none()
+
+            if not demo_user:
+                logger.info("   Creating 'demo@nexusai.com'...")
+                demo_user = User(
+                    email="demo@nexusai.com",
+                    password_hash=pwd_context.hash("demo123"),
+                    full_name="Demo Investor"
+                )
+                session.add(demo_user)
+                await session.flush()
+
+                logger.info("   Creating Investor Profile...")
+                profile = InvestorProfile(
+                    user_id=demo_user.id,
+                    age=32,
+                    occupation="Product Manager",
+                    monthly_income=250000,
+                    monthly_expenses=100000,
+                    monthly_investment_amount=50000,
+                    risk_appetite=RiskAppetite.AGGRESSIVE,
+                    investment_horizon=InvestmentHorizon.LONG_TERM,
+                    financial_goals=["wealth_accumulation", "fire"],
+                    domestic_vs_international=DomesticInternational.BOTH
+                )
+                session.add(profile)
+
+                logger.info("   Creating Stable Portfolio Holdings...")
+                # Tech Heavy, some Gold, some Bonds
+                holdings = [
+                    Holding(user_id=demo_user.id, asset_ticker="RELIANCE.NS", asset_name="Reliance Ind", asset_class="Equity", quantity=50, average_buy_price=2400.0),
+                    Holding(user_id=demo_user.id, asset_ticker="TCS.NS", asset_name="TCS", asset_class="Equity", quantity=20, average_buy_price=3800.0),
+                    Holding(user_id=demo_user.id, asset_ticker="INFY.NS", asset_name="Infosys", asset_class="Equity", quantity=100, average_buy_price=1400.0),
+                    Holding(user_id=demo_user.id, asset_ticker="GLD", asset_name="SPDR Gold Trust", asset_class="Commodity", quantity=10, average_buy_price=180.0),
+                    Holding(user_id=demo_user.id, asset_ticker="TLT", asset_name="20+ Year Treasury", asset_class="Debt", quantity=25, average_buy_price=95.0)
+                ]
+                session.add_all(holdings)
+                await session.commit()
+                logger.info("✅ Demo User and Portfolio successfully injected.")
+            else:
+                logger.info("✅ Demo User already exists. Skipping user seed.")
+
     logger.info("🎉 Seeding Complete! The platform is now fully populated and ready for demo.")
 
 if __name__ == "__main__":

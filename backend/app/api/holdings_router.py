@@ -5,7 +5,6 @@ from typing import List, Dict, Any
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from sqlalchemy.exc import NoResultFound
 
 from app.core.database import get_db
 from app.api.deps import get_current_user
@@ -13,7 +12,6 @@ from app.models.user import User
 from app.models.holding import Holding
 from app.schemas.holdings import (
     HoldingCreate,
-    HoldingUpdate,
     HoldingResponse,
     HoldingSnapshotResponse,
     VaultDashboardResponse

@@ -8,8 +8,6 @@ Handles edgeCases.md §2.4: Contradictory sentiment detection.
 
 import re
 import logging
-from typing import Optional
-from datetime import date
 
 logger = logging.getLogger(__name__)
 

@@ -1,6 +1,4 @@
-import pytest
-import datetime
-from app.services.rebalancing_service import rebalancing_service, MOCK_TRANSACTION_HISTORY
+from app.services.rebalancing_service import rebalancing_service
 
 def test_flash_crash_protection():
     # Intraday drop of 10%

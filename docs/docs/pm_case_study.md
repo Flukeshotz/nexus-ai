@@ -41,5 +41,12 @@ Product restraint is as important as feature development. We accepted the follow
 * **Autonomous Trading Agents:** High risk of hallucination-driven capital loss; focus must remain on *advisory* intelligence.
 * **Overly Complex Orchestration (Swarm/LangGraph):** Recursive agent loops increase latency, hallucination risk, and debugging overhead without adding proportionate PM value.
 
-## 7. Conclusion
+## 7. Known Limitations & Future Work
+To maintain credibility during PM interviews or technical reviews, we openly acknowledge the following prototype constraints:
+* **Mock Local Authentication:** The current system uses a simplistic JWT token generator to bypass heavy OAuth setups, prioritizing core AI iteration speed over identity management.
+* **Deterministic Simplifications:** The Scenario Simulator mathematically assumes a linear bond duration relationship (e.g., `-1%` for every `1%` rate hike). In a live enterprise system, this would require multi-variate stochastic modeling.
+* **Non-Regulated Positioning:** The AI is strictly constrained to *educational and strategic analysis*. It does not execute trades, ensuring the product avoids triggering heavy SEC/FINRA robo-advisor regulatory burdens during its prototype phase.
+* **Snapshot Latency:** By utilizing a Cache-First architecture, there is a deliberate tradeoff where market states may lag real-time feeds by up to 15-60 minutes depending on the `APScheduler` cron interval.
+
+## 8. Conclusion
 Nexus AI proves that the highest-ROI application of Generative AI in fintech is not predicting the future—it is anticipating user needs, actively guarding portfolios, and translating quantitative complexity into human-readable strategy. By prioritizing explainability and proactive intelligence, we transform a black-box quantitative tool into an indispensable financial partner.

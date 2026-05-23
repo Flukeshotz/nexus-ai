@@ -6,7 +6,6 @@ Covers create, update, read, and risk score output.
 from pydantic import BaseModel, Field, model_validator
 from typing import Optional
 from enum import Enum
-import warnings
 
 
 # ── Enum Mirrors (for Pydantic) ───────────────────────────────

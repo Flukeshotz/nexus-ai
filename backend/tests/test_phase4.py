@@ -9,8 +9,6 @@ Covers:
   - Portfolio explanation generation
 """
 
-import pytest
-import json
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -53,7 +51,7 @@ class TestRAGPipeline:
             assert r["metadata"]["sector"] == "tech"
 
     def test_rag_retrieve_returns_context(self):
-        from app.services.rag_service import FAISSVectorStore, get_vector_store, rag_retrieve
+        from app.services.rag_service import get_vector_store, rag_retrieve
         store = get_vector_store()
         store.add_documents(["Market rally continues with strong GDP data"])
         result = rag_retrieve("GDP and market outlook")

@@ -14,7 +14,6 @@ from app.services.llm_service import (
     classify_query,
     generate_portfolio_explanation,
     ask_groq,
-    INJECTION_REFUSAL,
 )
 from app.services.rag_service import rag_retrieve
 

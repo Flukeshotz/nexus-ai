@@ -292,7 +292,6 @@ def _run_efficient_frontier(
     """Run PyPortfolioOpt EfficientFrontier optimization."""
     try:
         from pypfopt import EfficientFrontier, objective_functions
-        from pypfopt import expected_returns as er_module
 
         ef = EfficientFrontier(
             expected_returns,

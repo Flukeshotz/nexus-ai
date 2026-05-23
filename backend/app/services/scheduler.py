@@ -108,7 +108,6 @@ async def hourly_portfolio_drift_check():
     except Exception as e:
         logger.error(f"Error in hourly_portfolio_drift_check: {e}")
 
-import os
 from app.services.market_snapshot_service import update_and_cache_snapshot
 
 def start_scheduler():

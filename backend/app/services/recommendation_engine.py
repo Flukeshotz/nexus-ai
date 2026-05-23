@@ -6,7 +6,6 @@ for a given investor profile + market environment.
 Implementation Plan §3.1
 """
 
-import numpy as np
 import logging
 from typing import Optional
 

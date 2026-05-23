@@ -5,7 +5,6 @@ and running sentiment analysis.
 """
 
 from fastapi import APIRouter, Depends, Query, HTTPException
-from typing import Optional
 
 from app.api.deps import get_current_user
 from app.models.user import User

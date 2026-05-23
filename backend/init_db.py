@@ -6,7 +6,6 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent))
 
 from app.core.database import engine, Base
-from app.models import *
 
 async def init_db():
     print("Initializing SQLite Database...")

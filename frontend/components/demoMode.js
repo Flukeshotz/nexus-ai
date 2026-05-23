@@ -23,17 +23,12 @@ function showCommentary(text, duration = 3000) {
 }
 
 export function startDemoFlow() {
-    console.log("Starting PM Demo Flow...");
-    showCommentary("Initializing Demo Flow: Preloading Investor Profile...", 2000);
+    console.log("Starting PM Showcase Flow...");
+    showCommentary("Welcome to Nexus AI. Loading Deterministic Portfolio Vault...", 3000);
 
-    // Step 1: Preload investor profile
-    document.getElementById('ob-age').value = 24;
-    document.getElementById('ob-horizon').value = "long_term";
-    if (window.selectRisk) window.selectRisk('aggressive');
-
-    // Step 2: Set an interesting market state
+    // Step 1: Preload and scan
     setTimeout(() => {
-        showCommentary("Injecting Live Market Snapshot: Detecting Bullish Regime...", 2500);
+        showCommentary("Scanning Live Macro Data... Fresh Snapshot Active.", 3500);
         updateState({
             marketSnapshot: {
                 timestamp: new Date().toISOString(),
@@ -42,38 +37,17 @@ export function startDemoFlow() {
                 interest_rate_trend: "Stable",
                 volatility_level: "Moderate",
                 fear_greed_score: 75
-            },
-            previousSnapshot: {
-                timestamp: new Date(Date.now() - 86400000).toISOString(),
-                market_regime: "Neutral",
-                inflation_trend: "Stable",
-                volatility_level: "Low",
-                fear_greed_score: 50
-            },
-            explainability: [
-                { signal: "Inflation Trend", state: "Rising", portfolio_effect: "Increased Gold Allocation by 5%", confidence: 0.88, source: "FRED CPIAUCSL" },
-                { signal: "Market Regime", state: "Bullish", portfolio_effect: "Overweighted NIFTYBEES", confidence: 0.95, source: "yfinance 50-SMA" }
-            ]
+            }
         });
-    }, 2000);
+    }, 3500);
 
-    // Step 3: Trigger Profile Save & Portfolio Generation
+    // Step 2: Highlight proactive intelligence
     setTimeout(() => {
-        showCommentary("Generating Explainable Portfolio via Deterministic Engine...", 3000);
-        if (window.saveProfile) window.saveProfile();
-        
-        // Wait for generation to finish then trigger chat question
-        setTimeout(() => {
-            showCommentary("Notice the Portfolio Timeline translating macro signals into UI narratives.", 3500);
-            
-            setTimeout(() => {
-                if (window.toggleChat) window.toggleChat();
-                showCommentary("Initiating Conversational Audit...", 2000);
-                setTimeout(() => {
-                    if (window.sendSuggestion) window.sendSuggestion("Why did my portfolio change?");
-                }, 1000);
-            }, 4000);
-        }, 2500);
+        showCommentary("Smart Alerts triggered. Checking for Portfolio Drift...", 3500);
+    }, 7500);
 
-    }, 4500);
+    // Step 3: Call to action for scenario simulation
+    setTimeout(() => {
+        showCommentary("Navigate to 'AI Strategies' or run a Scenario Simulation to continue the demo.", 5000);
+    }, 11500);
 }

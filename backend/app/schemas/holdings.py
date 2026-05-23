@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Optional, List
-from datetime import datetime, date
+from datetime import datetime
 import uuid
 
 class HoldingBase(BaseModel):

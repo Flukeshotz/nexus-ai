@@ -14,7 +14,6 @@ Edge Cases:
 import re
 import json
 import logging
-from typing import Optional
 from groq import Groq
 from app.core.config import settings
 

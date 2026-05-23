@@ -7,8 +7,6 @@ Processes text for the RAG pipeline (cleaning, chunking).
 import re
 import logging
 import xml.etree.ElementTree as ET
-from typing import Optional
-from datetime import datetime, timezone
 
 logger = logging.getLogger(__name__)
 

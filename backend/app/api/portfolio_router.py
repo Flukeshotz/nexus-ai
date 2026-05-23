@@ -10,7 +10,6 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 from typing import Optional
 import pandas as pd
-import numpy as np
 from datetime import date, timedelta
 
 from app.core.rate_limit import limiter
