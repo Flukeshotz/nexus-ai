@@ -287,7 +287,7 @@ async function doLogin() {
     }
     
     try {
-        const res = await fetch('http://localhost:8000/api/v1/auth/login', {
+        const res = await fetch(`${API_BASE}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -331,7 +331,7 @@ async function doRegister() {
     }
     
     try {
-        const res = await fetch('http://localhost:8000/api/v1/auth/register', {
+        const res = await fetch(`${API_BASE}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ full_name: fullName, email, password })
