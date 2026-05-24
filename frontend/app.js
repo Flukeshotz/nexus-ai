@@ -666,10 +666,10 @@ window.submitAddHolding = async function() {
     }
     
     try {
-        const res = await fetch(\`\${API_BASE}/holdings/\`, {
+        const res = await fetch(`${API_BASE}/holdings/`, {
             method: 'POST',
             headers: { 
-                'Authorization': \`Bearer \${state.token}\`,
+                'Authorization': `Bearer ${state.token}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
