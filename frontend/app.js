@@ -1376,7 +1376,14 @@ function appendMessage(text, sender) {
 }
 
 // ── BOOTSTRAP ────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', initApp);
+function bootstrap() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+        initApp();
+    }
+}
+bootstrap();
 
 // Subscribe UI to state changes
 subscribe(() => {
