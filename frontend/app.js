@@ -4,6 +4,28 @@
  */
 
 import { state, updateState, subscribe } from './state/appState.js';
+
+// GLOBAL FAILSAFE: If the app crashes completely, print the error to the screen so we can see it!
+window.addEventListener('error', function(e) {
+    const main = document.getElementById('app-main');
+    if (main) {
+        main.innerHTML = `<div style="padding: 40px; color: red; background: #220000; font-family: monospace;">
+            <h2>FATAL CRASH</h2>
+            <p>${e.message}</p>
+            <p>At ${e.filename}:${e.lineno}</p>
+        </div>`;
+    }
+});
+window.addEventListener('unhandledrejection', function(e) {
+    const main = document.getElementById('app-main');
+    if (main) {
+        main.innerHTML = `<div style="padding: 40px; color: red; background: #220000; font-family: monospace;">
+            <h2>PROMISE CRASH</h2>
+            <p>${e.reason}</p>
+        </div>`;
+    }
+});
+
 import { renderDailyMarketSummary } from './components/dailyMarketSummary.js';
 import { renderAIConfidenceMeter } from './components/aiConfidenceMeter.js';
 import { renderPortfolioEvolutionTimeline } from './components/portfolioEvolutionTimeline.js';
