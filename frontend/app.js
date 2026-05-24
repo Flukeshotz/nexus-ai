@@ -84,12 +84,21 @@ window.addEventListener('hashchange', () => {
 async function initApp() {
     // Check if onboarded
     state.token = localStorage.getItem('nexus_token');
-    const storedProfile = localStorage.getItem('nexus_profile');
-    if (storedProfile) {
-        state.profile = JSON.parse(storedProfile);
-        // Load mock portfolio if exists
+    
+    try {
+        const storedProfile = localStorage.getItem('nexus_profile');
+        if (storedProfile) {
+            state.profile = JSON.parse(storedProfile);
+        }
+        
         const storedPortfolio = localStorage.getItem('nexus_portfolio');
-        if (storedPortfolio) state.portfolio = JSON.parse(storedPortfolio);
+        if (storedPortfolio) {
+            state.portfolio = JSON.parse(storedPortfolio);
+        }
+    } catch (e) {
+        console.warn("Cleared corrupted local storage data", e);
+        localStorage.removeItem('nexus_profile');
+        localStorage.removeItem('nexus_portfolio');
     }
 
     const page = window.location.hash.substring(1) || (state.token ? 'dashboard' : 'login');
