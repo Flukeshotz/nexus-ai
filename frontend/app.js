@@ -1355,51 +1355,6 @@ async function sendChat() {
     }
 }
 
-async function handleScenarioSimulation() {
-    const scenarioType = document.getElementById('scenario-type').value;
-    const resultsDiv = document.getElementById('scenario-results');
-    
-    resultsDiv.classList.remove('hidden');
-    resultsDiv.innerHTML = '<div class="animate-pulse flex items-center gap-2"><span class="material-symbols-outlined animate-spin text-primary">sync</span> Running stochastic simulation...</div>';
-    
-    try {
-        const res = await fetch(`${API_BASE}/portfolio/scenario?scenario_type=${scenarioType}`, {
-            headers: { 'Authorization': `Bearer ${state.token}` }
-        });
-        
-        if (res.ok) {
-            const data = await res.json();
-            const impactColor = data.portfolio_impact_pct >= 0 ? 'text-up' : 'text-down';
-            const impactSign = data.portfolio_impact_pct >= 0 ? '+' : '';
-            
-            resultsDiv.innerHTML = `
-                <div class="mt-4 border-t border-outline-variant pt-4 fade-in">
-                    <h3 class="headline-sm mb-2">Simulation Results</h3>
-                    <div class="flex gap-4 mb-4">
-                        <div class="bg-surface-variant p-3 rounded-lg flex-1">
-                            <div class="label text-muted">Est. Impact</div>
-                            <div class="display ${impactColor} text-[24px]">${impactSign}${(data.portfolio_impact_pct * 100).toFixed(2)}%</div>
-                        </div>
-                        <div class="bg-surface-variant p-3 rounded-lg flex-1">
-                            <div class="label text-muted">New Net Worth</div>
-                            <div class="display text-[24px]">${formatCurrency(data.new_net_worth)}</div>
-                        </div>
-                    </div>
-                    <div class="bg-primary/10 p-3 rounded-lg border border-primary/20">
-                        <h4 class="label text-primary mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">psychology</span> AI Analysis</h4>
-                        <p class="body-sm">${data.ai_analysis || 'No AI analysis generated.'}</p>
-                    </div>
-                </div>
-            `;
-        } else {
-            resultsDiv.innerHTML = '<div class="text-error mt-4">Simulation failed to run.</div>';
-        }
-    } catch (e) {
-        console.error(e);
-        resultsDiv.innerHTML = '<div class="text-error mt-4">Simulation encountered an error.</div>';
-    }
-}
-
 function appendMessage(text, sender) {
     const chatMsgs = document.getElementById('chat-messages');
     const msgDiv = document.createElement('div');
