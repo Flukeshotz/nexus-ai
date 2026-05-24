@@ -1399,7 +1399,6 @@ window.sendSuggestion = sendSuggestion;
 window.sendChat = sendChat;
 window.changeMarketSymbol = changeMarketSymbol;
 window.searchMarketSymbol = searchMarketSymbol;
-window.saveProfile = saveProfile;
 window.simulateScenario = handleScenarioSimulation;
 window.startDemoFlow = startDemoFlow;
 window.showTrustTrace = renderTrustTraceModal;
