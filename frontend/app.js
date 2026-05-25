@@ -126,12 +126,7 @@ async function initApp() {
     const page = window.location.hash.substring(1) || (state.token ? 'dashboard' : 'login');
     
     // If the hash is already the same, setting it won't trigger 'hashchange'.
-    // We must manually call router() to ensure the initial render happens!
-    if (window.location.hash.substring(1) === page) {
-        router();
-    } else {
-        navigateTo(page);
-    }
+    navigateTo(page);
 }
 
 // ── AUTH VIEWS ───────────────────────────────────────────────────
