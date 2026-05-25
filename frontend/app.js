@@ -282,6 +282,12 @@ async function doLogin() {
     }
     
     try {
+        const btn = document.querySelector('form button[type="submit"]');
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">sync</span> Signing In...';
+        }
+
         const res = await fetch(`${API_BASE}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -295,6 +301,10 @@ async function doLogin() {
                 errorMsg = Array.isArray(errorData.detail) ? errorData.detail[0].msg : errorData.detail;
             }
             alert("Login Failed: " + errorMsg);
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = 'Sign In';
+            }
             return;
         }
         
@@ -312,6 +322,11 @@ async function doLogin() {
     } catch (err) {
         console.error(err);
         alert("Server connection failed. Is the backend running?");
+        const btn = document.querySelector('form button[type="submit"]');
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = 'Sign In';
+        }
     }
 }
 
@@ -326,6 +341,12 @@ async function doRegister() {
     }
     
     try {
+        const btn = document.querySelector('form button[type="submit"]');
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">sync</span> Signing Up...';
+        }
+
         const res = await fetch(`${API_BASE}/auth/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -339,6 +360,10 @@ async function doRegister() {
                 errorMsg = Array.isArray(errorData.detail) ? errorData.detail[0].msg : errorData.detail;
             }
             alert("Registration Failed: " + errorMsg);
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = 'Sign Up';
+            }
             return;
         }
         
@@ -348,7 +373,12 @@ async function doRegister() {
         navigateTo('onboarding');
     } catch (err) {
         console.error(err);
-        alert("Server connection failed.");
+        alert("Server connection failed. Is the backend running?");
+        const btn = document.querySelector('form button[type="submit"]');
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = 'Sign Up';
+        }
     }
 }
 
